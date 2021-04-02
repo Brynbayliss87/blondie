@@ -12,13 +12,15 @@ RSpec.describe Clint::Builder do
       expected = {
         "rake" => "https://rubygems.org/downloads/rake-12.0",
         "rspec" => "https://rubygems.org/downloads/rspec-3.0",
-        "bson" => "https://rubygems.org/downloads/bson-"
+        "bson" => "https://rubygems.org/downloads/bson-",
+        "pry" => "https://rubygems.org/downloads/pry-"
       }
 
-      expect(subject.urls.keys).to eq(expected.keys)
+      expect(subject.urls.keys).to match_array(expected.keys)
       expect(subject.urls["rake"]).to include(expected["rake"])
       expect(subject.urls["rspec"]).to include(expected["rspec"])
       expect(subject.urls["bson"]).to include(expected["bson"])
+      expect(subject.urls["pry"].split("/").last).not_to include("ruby", "java", "i386-mingw32", "i386-mswin32")
     end
 
     context "with a non-existant version number and specifier" do

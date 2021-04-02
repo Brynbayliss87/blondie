@@ -1,4 +1,7 @@
 # Clint
+...you've got to ask yourself one question: 'Do I feel lucky?' Well, with clint
+take the luck out the draw. 🤠
+
 Clint is a tool to check your gemfile for any dependencies with C extensions
 before bundling
 

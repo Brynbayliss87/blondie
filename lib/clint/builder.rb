@@ -14,8 +14,8 @@ module Clint
     def urls
       @urls ||= {}.tap do |hash|
         gems_hash.each do |key, value|
-          version = value.last&.gsub("\"", "")
-          specifier = value.first if value.count == 2
+          version = value.last&.gsub(/\"|'/, "")
+          specifier = value.first.gsub(/\"|'/, "") if value.count == 2
           specifier&.gsub!("\"", "")
           library = key.gsub(/('|,|")/, "")
           url = "#{RUBY_GEMS_URL}#{library}"
@@ -35,11 +35,10 @@ module Clint
 
     def resolve_latest_version(library, specifier, version)
       version += ".0" if version&.count(".") == 1
+      version += ".0.0" if version && version.count(".") == 0
       versions = `gem search ^#{library}$  --remote --all`
-      versions = versions.split(" ")
-      versions.delete_at(0)
-      versions.first.gsub!("(", "")
-      versions.last.gsub!(")", "")
+      versions = versions.split(",")
+      versions = clean_up_versions(versions)
 
       case specifier
       when ">", ">=", nil
@@ -47,11 +46,10 @@ module Clint
       when "~>"
         versions.each_with_index do |v, index|
           next_ver = if index == 0
-            versions[index]
+                       versions[index]
                      else
                        versions[index - 1]
                      end
-          v.gsub!(",", "")
           if v == version
             return next_ver unless version_bump?(v, next_ver)
             return v
@@ -59,6 +57,24 @@ module Clint
         end
         raise 'gem version does not exist'
       end
+    end
+
+    def clean_up_versions(versions)
+      versions.delete_at(0)
+      versions = versions.select do |v|
+        v.strip!
+        !v.include?("ruby") && (
+          v.include?("java") ||
+          v.include?("i386-mingw32") ||
+          v.include?("i386-mswin32")
+        ) || (
+              !v.include?("ruby") ||
+              !v.include?("java") ||
+              !v.include?("i386-mingw32") ||
+              !v.include?("i386-mswin32")
+             )
+      end
+      versions.each { |v| v.gsub!(/(\(|\s|\)|,|ruby|java|i386-mingw32|i386-mswin32)/, "")}
     end
 
     def version_bump?(current_version, next_version)
