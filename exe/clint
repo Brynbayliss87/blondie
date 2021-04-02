@@ -2,6 +2,8 @@
 require "clint"
 
 path = ARGV[0]
+puts "Checking extensions..."
+
 exts = Clint::Linter.new(path).gems_with_extensions_list
 
 unless exts.empty?
