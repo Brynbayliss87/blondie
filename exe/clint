@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 require "clint"
 
-exts = Clint::Linter.new(ARGV[0]).gems_with_extensions_list
+path = ARGV[0]
+exts = Clint::Linter.new(path).gems_with_extensions_list
 
 unless exts.empty?
   exts.each do |ext|

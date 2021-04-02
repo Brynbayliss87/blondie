@@ -20,8 +20,9 @@ Or install it yourself as:
 
 ## Usage
 
-Clint either takes a pathname to a Gemfile or with no path given will look for a
-Gemfile in the current directory
+Clint takes an absolute path to a Gemfile, it then either provides a list of
+the gems with C extensions or lets you know that none of your dependencies have
+extensions
 
 `clint /path/to/Gemfile`
 

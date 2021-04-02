@@ -14,33 +14,6 @@ RSpec.describe Clint::Linter do
     }
   end
 
-  describe ".new" do
-    context "when initialized with a path" do
-      context "with a valid path" do
-
-        it "sets the gemfile_path" do
-          expect(subject.gemfile_path).to eq(path)
-        end
-      end
-
-      context "with an invalid path" do
-        let(:path) { '/spec/support/test_files/not_a_Gemfile' }
-
-        it "throws an error" do
-          expect{subject}.to raise_error { "Gemfile not specified in path" }
-        end
-      end
-    end
-
-    context "when initialized without a path" do
-      let(:path) { nil }
-
-      it "sets the path to gemfile in current directory" do
-        expect(subject.gemfile_path).to eq(Bundler.root.to_s + "/lib/Gemfile")
-      end
-    end
-  end
-
   describe "#gems_with_extensions_list" do
     before do
       allow_any_instance_of(Clint::Builder).to receive(:urls)
