@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require "clint"
+
+exts = Clint::Linter.new(ARGV[0]).gems_with_extensions_list
+
+unless exts.empty?
+  exts.each do |ext|
+    puts "C Extension found in: #{ext}"
+  end
+else
+  puts "No C extensions found"
+end
