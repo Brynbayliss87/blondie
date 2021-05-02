@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
-require "clint"
+require "blondie"
 
 path = ARGV[0]
 puts "Checking extensions..."
 
-exts = Clint::Linter.new(path).gems_with_extensions_list
+exts = Blondie::Linter.new(path).gems_with_extensions_list
 
 unless exts.empty?
   exts.each do |ext|

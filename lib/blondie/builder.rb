@@ -1,7 +1,7 @@
 require "open-uri"
 require "yaml"
 
-module Clint
+module Blondie
   class Builder
     RUBY_GEMS_URL = "https://rubygems.org/downloads/".freeze
 

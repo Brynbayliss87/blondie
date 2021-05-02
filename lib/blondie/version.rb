@@ -1,3 +1,3 @@
-module Clint
+module Blondie
   VERSION = "0.1.0"
 end

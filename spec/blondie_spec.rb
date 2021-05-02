@@ -1,6 +1,6 @@
-RSpec.describe Clint::Linter do
+RSpec.describe Blondie::Linter do
   it "has a version number" do
-    expect(Clint::VERSION).not_to be nil
+    expect(Blondie::VERSION).not_to be nil
   end
 
   subject { described_class.new(path) }
@@ -16,13 +16,13 @@ RSpec.describe Clint::Linter do
 
   describe "#gems_with_extensions_list" do
     before do
-      allow_any_instance_of(Clint::Builder).to receive(:urls)
+      allow_any_instance_of(Blondie::Builder).to receive(:urls)
         .and_return(urls)
     end
 
     context "when there is extensions" do
       before do
-        allow_any_instance_of(Clint::Checker).to receive(:gems_with_extensions)
+        allow_any_instance_of(Blondie::Checker).to receive(:gems_with_extensions)
           .and_return(['bson'])
       end
 
@@ -33,7 +33,7 @@ RSpec.describe Clint::Linter do
 
     context "when there is no extensions" do
       before do
-        allow_any_instance_of(Clint::Checker).to receive(:gems_with_extensions)
+        allow_any_instance_of(Blondie::Checker).to receive(:gems_with_extensions)
           .and_return([])
       end
 

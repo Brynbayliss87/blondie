@@ -1,4 +1,4 @@
-RSpec.describe Clint::Builder do
+RSpec.describe Blondie::Builder do
   subject do
     described_class.new(
       Bundler.root.to_s + testfile_path

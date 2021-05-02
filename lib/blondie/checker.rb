@@ -3,7 +3,7 @@ require 'tmpdir'
 require 'yaml'
 require 'minitar'
 
-module Clint
+module Blondie
   class Checker
 
     attr_reader :urls

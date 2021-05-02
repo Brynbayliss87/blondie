@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in clint.gemspec
+# Specify your gem's dependencies in blondie.gemspec
 gemspec
 
 gem "rake", "~> 12.0"

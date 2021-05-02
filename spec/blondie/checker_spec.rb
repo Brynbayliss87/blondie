@@ -1,4 +1,4 @@
-RSpec.describe Clint::Checker do
+RSpec.describe Blondie::Checker do
   subject do
     described_class.new(urls)
   end

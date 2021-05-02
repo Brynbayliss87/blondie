@@ -1,8 +1,9 @@
-# Clint
-...you've got to ask yourself one question: 'Do I feel lucky?' Well, with clint
+# Blondie
+...you've got to ask yourself one question: 'Do I feel lucky?' Well, with
+blondie
 take the luck out the draw. 🤠
 
-Clint is a tool to check your gemfile for any dependencies with C extensions
+Blondie is a tool to check your gemfile for any dependencies with C extensions
 before bundling
 
 ## Installation
@@ -10,7 +11,7 @@ before bundling
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'clint'
+gem 'blondie'
 ```
 
 And then execute:
@@ -19,15 +20,15 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install clint
+    $ gem install blondie
 
 ## Usage
 
-Clint takes an absolute path to a Gemfile, it then either provides a list of
+Blondie takes an absolute path to a Gemfile, it then either provides a list of
 the gems with C extensions or lets you know that none of your dependencies have
 extensions
 
-`clint /path/to/Gemfile`
+`blondie /path/to/Gemfile`
 
 ## Development
 
@@ -37,7 +38,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Brynbayliss87/clint.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Brynbayliss87/blondie.
 
 
 ## License

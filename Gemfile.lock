@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    clint (0.1.0)
-      minitar
+    blondie (0.1.0)
+      minitar (~> 0.9)
 
 GEM
   remote: https://rubygems.org/
@@ -33,7 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  clint!
+  blondie!
   pry
   rake (~> 12.0)
   rspec (~> 3.0)
